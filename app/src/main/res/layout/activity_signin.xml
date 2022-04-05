@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="si"
+            type="com.cyan.fireminigame.viewmodel.activity.SignInViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/dark"
+        tools:context=".SignUpActivity">
+
+        <TextView
+            android:id="@+id/txt_si"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/signIn"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edt_si_email"
+            android:layout_width="360dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/white"
+            android:ems="10"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:text="@={si.email}"
+            app:layout_constraintStart_toStartOf="@+id/txt_si"
+            app:layout_constraintTop_toBottomOf="@+id/txt_si_emVer" />
+
+        <EditText
+            android:id="@+id/edt_si_pwd"
+            android:layout_width="360dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/white"
+            android:ems="10"
+            android:hint="@string/pwd"
+            android:inputType="textPassword"
+            android:text="@={si.pwd}"
+            app:layout_constraintStart_toStartOf="@+id/txt_si"
+            app:layout_constraintTop_toBottomOf="@+id/txt_si_pwd6" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_si"
+            android:layout_width="360dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/purple_500"
+            android:onClick="@{()->si.btnSiOnClick()}"
+            android:text="@string/signIn"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@+id/txt_si"
+            app:layout_constraintTop_toBottomOf="@+id/txt_si_checkEP" />
+
+        <TextView
+            android:id="@+id/txt_si_pwd6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/pwd6"
+            android:textColor="@color/red"
+            android:textSize="11sp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="@+id/txt_si"
+            app:layout_constraintTop_toBottomOf="@+id/edt_si_email" />
+
+        <TextView
+            android:id="@+id/txt_si_checkEP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/plsCheck"
+            android:textColor="@color/red"
+            android:textSize="11sp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="@+id/txt_si"
+            app:layout_constraintTop_toBottomOf="@+id/edt_si_pwd" />
+
+        <TextView
+            android:id="@+id/txt_si_emVer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/emVer"
+            android:textColor="@color/red"
+            android:textSize="11sp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="@+id/txt_si"
+            app:layout_constraintTop_toBottomOf="@+id/txt_si" />
+
+        <TextView
+            android:id="@+id/txt_si_suEm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:onClick="@{()->si.txtSuEmOnClick()}"
+            android:text="@string/signUpWithEmail"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/txt_si"
+            app:layout_constraintTop_toBottomOf="@+id/btn_si" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

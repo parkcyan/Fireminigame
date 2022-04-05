@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="gm"
+            type="com.cyan.fireminigame.viewmodel.fragment.LobbyViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:background="@color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+
+            <EditText
+                android:id="@+id/edt_nr_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="1dp"
+                android:backgroundTint="@color/white"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@={gm.title}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_nr_title" />
+
+            <TextView
+                android:id="@+id/txt_nr_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="@string/title"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/edt_nr_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.54"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+            <Button
+                android:id="@+id/btn_ng_create"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/newRoom"
+                android:onClick="@{()->gm.btnNewRoom()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.95"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_nr_t3" />
+
+            <RadioButton
+                android:id="@+id/rb_nr_nb"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:textColor="@color/white"
+                android:text="@string/numberBaseball"
+                android:checked="@={gm.nbChecked}"
+                android:onClick="@{(v)->gm.radioCheckChange(v)}"
+                app:layout_constraintBottom_toTopOf="@+id/rb_nr_test1"
+                app:layout_constraintEnd_toStartOf="@+id/img_nr_nb"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.2"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintWidth_percent="0.3" />
+
+            <RadioButton
+                android:id="@+id/rb_nr_test2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="Test"
+                android:checked="@={gm.t2Checked}"
+                android:textColor="@color/white"
+                android:onClick="@{(v)->gm.radioCheckChange(v)}"
+                app:layout_constraintEnd_toStartOf="@+id/img_nr_t2"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/img_nr_nb"
+                app:layout_constraintTop_toTopOf="@+id/rb_nr_nb"
+                app:layout_constraintWidth_percent="0.3" />
+
+            <RadioButton
+                android:id="@+id/rb_nr_test3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:textColor="@color/white"
+                android:text="Test"
+                android:onClick="@{(v)->gm.radioCheckChange(v)}"
+                android:checked="@={gm.t3Checked}"
+                app:layout_constraintEnd_toStartOf="@+id/img_nr_t3"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/img_nr_t1"
+                app:layout_constraintTop_toTopOf="@+id/rb_nr_test1"
+                app:layout_constraintWidth_percent="0.3" />
+
+            <RadioButton
+                android:id="@+id/rb_nr_test1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="Test"
+                android:checked="@={gm.t1Checked}"
+                android:textColor="@color/white"
+                android:onClick="@{(v)->gm.radioCheckChange(v)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/img_nr_t1"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rb_nr_nb"
+                app:layout_constraintWidth_percent="0.3" />
+
+            <ImageView
+                android:id="@+id/img_nr_nb"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toStartOf="@+id/rb_nr_test2"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/rb_nr_nb"
+                app:layout_constraintTop_toTopOf="@+id/rb_nr_nb"
+                app:layout_constraintWidth_percent="0.1"
+                app:srcCompat="@drawable/ic_baseball_white_24dp" />
+
+            <ImageView
+                android:id="@+id/img_nr_t1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toStartOf="@+id/rb_nr_test3"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/rb_nr_test1"
+                app:layout_constraintTop_toTopOf="@+id/rb_nr_test1"
+                app:layout_constraintWidth_percent="0.1"
+                app:srcCompat="@drawable/ic_game_24px" />
+
+            <ImageView
+                android:id="@+id/img_nr_t2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/rb_nr_test2"
+                app:layout_constraintTop_toTopOf="@+id/rb_nr_nb"
+                app:layout_constraintWidth_percent="0.1"
+                app:srcCompat="@drawable/ic_game_24px" />
+
+            <ImageView
+                android:id="@+id/img_nr_t3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/rb_nr_test3"
+                app:layout_constraintTop_toTopOf="@+id/rb_nr_test1"
+                app:layout_constraintWidth_percent="0.1"
+                app:srcCompat="@drawable/ic_game_24px" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/txt_nr_ng"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="@string/newGameRoom"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

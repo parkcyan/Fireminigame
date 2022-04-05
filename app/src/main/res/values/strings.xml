@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">FireMinigame</string>
+    <string name="email">이메일</string>
+    <string name="pwd">비밀번호</string>
+    <string name="title">방 제목</string>
+    <string name="pwdCheck">비밀번호 확인</string>
+    <string name="nic">닉네임</string>
+    <string name="signIn">로그인</string>
+    <string name="signUp">회원가입</string>
+    <string name="signOut">로그아웃</string>
+    <string name="signUpWithEmail">이메일로 회원가입</string>
+    <string name="pwd6">* 비밀번호는 6자 이상으로 입력해주세요.</string>
+    <string name="emVer">* 유효하지 않은 email 형식입니다.</string>
+    <string name="pwdMatch">* 비밀번호가 일치하지 않습니다.</string>
+    <string name="emAlready">* 이미 등록된 이메일 주소입니다.</string>
+    <string name="nicLen">* 닉네임은 2글자 이상으로 작성해주십시오.</string>
+    <string name="nicSc">* 닉네임에 한글, 영문, 숫자 외 문자를 사용할 수 없습니다.</string>
+    <string name="plsCheck">* 이메일 또는 비밀번호를 확인해주세요.</string>
+    <string name="signUpSuccess">회원가입이 완료되었습니다.</string>
+    <string name="chatContext">%1$s : %2$s</string>
+    <string name="newRoomTitle">같이 %1s 한판해요 ^^</string>
+    <string name="newGameRoom">게임 방 만들기</string>
+    <string name="newRoom">방 만들기</string>
+    <string name="numberBaseball">숫자야구</string>
+    <string name="test1">테스트1</string>
+    <string name="test2">테스트2</string>
+    <string name="test3">테스트3</string>
+    <string name="ready">Ready</string>
+    <string name="gameStart">게임 시작</string>
+
+    <string name="nbStatFirst">게임이 시작되었습니다. 상대방이 맞출 세 숫자를 입력해주세요.</string>
+
+    <string name="nbFirstNum">세 숫자를 중복되지 않도록 입력해주세요.</string>
+    <string name="nbSubmit">숫자를 골랐습니다. 상대방이 숫자를 입력할때까지 기다려주세요.</string>
+    <string name="nbNumShort">세 숫자를 전부 입력해주세요.</string>
+    <string name="nbNumDup">중복된 숫자가 포함되어 있습니다.</string>
+    <string name="nbMyTurn">플레이어의 차례입니다. 예상한 숫자를 입력해주세요.</string>
+    <string name="nbOpTurn">상대방의 차례입니다. 상대방이 숫자를 입력중입니다.</string>
+</resources>

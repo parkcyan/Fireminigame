@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="gm"
+            type="com.cyan.fireminigame.viewmodel.activity.GameViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_game"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/dark"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:layout_collapseMode="pin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.08"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/round_border_white_4dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_gm_start"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_gm_title"
+            app:layout_constraintVertical_bias="0.25"
+            app:layout_constraintWidth_percent="0.8">
+
+            <TextView
+                android:id="@+id/txt_gm_m1"
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:text="@={gm.member1}"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/btn_gm_m1"
+                app:layout_constraintEnd_toEndOf="@+id/img_gm_m1"
+                app:layout_constraintStart_toStartOf="@+id/img_gm_m1"
+                app:layout_constraintTop_toBottomOf="@+id/img_gm_m1"
+                app:layout_constraintVertical_bias="0.3" />
+
+            <TextView
+                android:id="@+id/txt_gm_m2"
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:text="@={gm.member2}"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/btn_gm_m2"
+                app:layout_constraintEnd_toEndOf="@+id/img_gm_m2"
+                app:layout_constraintStart_toStartOf="@+id/img_gm_m2"
+                app:layout_constraintTop_toBottomOf="@+id/img_gm_m2"
+                app:layout_constraintVertical_bias="0.3" />
+
+            <ImageView
+                android:id="@+id/img_gm_m1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintWidth_percent="0.3"
+                app:layout_constraintHeight_percent="0.3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.1"
+                app:srcCompat="@drawable/ic_launcher_foreground" />
+
+            <ImageView
+                android:id="@+id/img_gm_m2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintWidth_percent="0.3"
+                app:layout_constraintHeight_percent="0.3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.9"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.1"
+                app:srcCompat="@drawable/ic_launcher_foreground" />
+
+            <TextView
+                android:id="@+id/txt_gm_vs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VS"
+                android:textSize="35sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/img_gm_gm"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.1"
+                app:layout_constraintWidth_percent="0.2" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_gm_m1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/round_border_white_2dp"
+                android:text="@string/ready"
+                android:onClick="@{()->gm.btnM1Ready()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/img_gm_m1"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintStart_toStartOf="@+id/img_gm_m1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.9" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_gm_m2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/round_border_white_2dp"
+                android:text="@string/ready"
+                android:onClick="@{()->gm.btnM2Ready()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/img_gm_m2"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintStart_toStartOf="@+id/img_gm_m2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.9" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/txt_gm_title"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@={gm.title}"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.1"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_game"
+            app:layout_constraintVertical_bias="0.08"
+            app:layout_constraintWidth_percent="0.8" />
+
+        <Button
+            android:id="@+id/btn_gm_start"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/gameStart"
+            android:onClick="@{()->gm.btnGameStart()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.06"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_game"
+            app:layout_constraintVertical_bias="0.75"
+            app:layout_constraintWidth_percent="0.8" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

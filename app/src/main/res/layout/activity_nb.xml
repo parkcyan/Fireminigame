@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="nb"
+            type="com.cyan.fireminigame.viewmodel.activity.NumBaseViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_nb"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/dark"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:layout_collapseMode="pin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.08"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout6"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/round_border_white_2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.3"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_nb_1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/round_border_white_2dp"
+                android:text="1"
+                android:onClick="@{()->nb.btnNum(1)}"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintHorizontal_bias="0.07"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.07"
+                app:layout_constraintWidth_percent="0.25" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_nb_2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/round_border_white_2dp"
+                android:text="2"
+                android:onClick="@{()->nb.btnNum(2)}"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/btn_nb_3"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintStart_toEndOf="@+id/btn_nb_1"
+                app:layout_constraintTop_toTopOf="@+id/btn_nb_1"
+                app:layout_constraintWidth_percent="0.25" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_nb_3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/round_border_white_2dp"
+                android:text="3"
+                android:onClick="@{()->nb.btnNum(3)}"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintHorizontal_bias="0.93"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.07"
+                app:layout_constraintWidth_percent="0.25" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_nb_4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/round_border_white_2dp"
+                android:text="4"
+                android:textSize="20sp"
+                android:onClick="@{()->nb.btnNum(4)}"
+                app:layout_constraintBottom_toTopOf="@+id/btn_nb_7"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintStart_toStartOf="@+id/btn_nb_1"
+                app:layout_constraintTop_toBottomOf="@+id/btn_nb_1"
+                app:layout_constraintWidth_percent="0.25" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_nb_5"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/round_border_white_2dp"
+                android:text="5"
+                android:textSize="20sp"
+                android:onClick="@{()->nb.btnNum(5)}"
+                app:layout_constraintBottom_toTopOf="@+id/btn_nb_8"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintStart_toStartOf="@+id/btn_nb_2"
+                app:layout_constraintTop_toBottomOf="@+id/btn_nb_2"
+                app:layout_constraintWidth_percent="0.25" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_nb_6"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/round_border_white_2dp"
+                android:text="6"
+                android:textSize="20sp"
+                android:onClick="@{()->nb.btnNum(6)}"
+                app:layout_constraintBottom_toTopOf="@+id/btn_nb_9"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintStart_toStartOf="@+id/btn_nb_3"
+                app:layout_constraintTop_toBottomOf="@+id/btn_nb_3"
+                app:layout_constraintWidth_percent="0.25" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_nb_7"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/round_border_white_2dp"
+                android:text="7"
+                android:textSize="20sp"
+                android:onClick="@{()->nb.btnNum(7)}"
+                app:layout_constraintBottom_toTopOf="@+id/btn_nb_bs"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintStart_toStartOf="@+id/btn_nb_1"
+                app:layout_constraintTop_toBottomOf="@+id/btn_nb_4"
+                app:layout_constraintWidth_percent="0.25" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_nb_8"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/round_border_white_2dp"
+                android:text="8"
+                android:textSize="20sp"
+                android:onClick="@{()->nb.btnNum(8)}"
+                app:layout_constraintBottom_toTopOf="@+id/btn_nb_0"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintStart_toStartOf="@+id/btn_nb_2"
+                app:layout_constraintTop_toBottomOf="@+id/btn_nb_5"
+                app:layout_constraintWidth_percent="0.25" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_nb_9"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/round_border_white_2dp"
+                android:text="9"
+                android:textSize="20sp"
+                android:onClick="@{()->nb.btnNum(9)}"
+                app:layout_constraintBottom_toTopOf="@+id/btn_nb_ok"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintStart_toStartOf="@+id/btn_nb_3"
+                app:layout_constraintTop_toBottomOf="@+id/btn_nb_6"
+                app:layout_constraintWidth_percent="0.25" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_nb_bs"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/round_border_white_2dp"
+                android:text="←"
+                android:textSize="20sp"
+                android:onClick="@{()->nb.btnBack()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintHorizontal_bias="0.07"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.93"
+                app:layout_constraintWidth_percent="0.25" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_nb_0"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/round_border_white_2dp"
+                android:text="0"
+                android:textSize="20sp"
+                android:onClick="@{()->nb.btnNum(0)}"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_nb_bs"
+                app:layout_constraintEnd_toStartOf="@+id/btn_nb_ok"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintStart_toEndOf="@+id/btn_nb_bs"
+                app:layout_constraintWidth_percent="0.25" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_nb_ok"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/round_border_white_2dp"
+                android:text="✓"
+                android:textSize="20sp"
+                android:onClick="@{()->nb.btnSubmit()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintHorizontal_bias="0.93"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.93"
+                app:layout_constraintWidth_percent="0.25" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <EditText
+            android:id="@+id/edt_nb_n1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/white"
+            android:clickable="false"
+            android:ems="10"
+            android:focusable="false"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:textSize="45sp"
+            android:text="@={nb.num1}"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout6"
+            app:layout_constraintEnd_toStartOf="@+id/edt_nb_n2"
+            app:layout_constraintHeight_percent="0.1"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_nb"
+            app:layout_constraintVertical_bias="0.9"
+            app:layout_constraintWidth_percent="0.15" />
+
+        <EditText
+            android:id="@+id/edt_nb_n2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/white"
+            android:clickable="false"
+            android:ems="10"
+            android:textSize="45sp"
+            android:focusable="false"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:text="@={nb.num2}"
+            app:layout_constraintEnd_toStartOf="@+id/edt_nb_n3"
+            app:layout_constraintHeight_percent="0.1"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/edt_nb_n1"
+            app:layout_constraintTop_toTopOf="@+id/edt_nb_n1"
+            app:layout_constraintWidth_percent="0.15" />
+
+        <EditText
+            android:id="@+id/edt_nb_n3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/white"
+            android:clickable="false"
+            android:ems="10"
+            android:textSize="45sp"
+            android:focusable="false"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:text="@={nb.num3}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.1"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/edt_nb_n2"
+            app:layout_constraintTop_toTopOf="@+id/edt_nb_n1"
+            app:layout_constraintWidth_percent="0.15" />
+
+        <TextView
+            android:id="@+id/txt_nb_bc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@={nb.ball}"
+            android:textSize="45sp"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout6"
+            app:layout_constraintStart_toStartOf="@+id/edt_nb_n1"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_nb"
+            app:layout_constraintVertical_bias="0.6" />
+
+        <TextView
+            android:id="@+id/txt_nb_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="OUT"
+            android:textSize="45sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_nb_bc"
+            app:layout_constraintEnd_toEndOf="@+id/edt_nb_n3" />
+
+        <TextView
+            android:id="@+id/txt_nb_sc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@={nb.strike}"
+            android:textSize="45sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_nb_bc"
+            app:layout_constraintEnd_toStartOf="@+id/txt_nb_out"
+            app:layout_constraintStart_toEndOf="@+id/txt_nb_bc" />
+
+        <TextView
+            android:id="@+id/txt_nb_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="B"
+            android:textColor="#00FF00"
+            android:textSize="35sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_nb_bc"
+            app:layout_constraintEnd_toStartOf="@+id/txt_nb_sc"
+            app:layout_constraintHeight_percent="0.05"
+            app:layout_constraintStart_toEndOf="@+id/txt_nb_bc"
+            app:layout_constraintWidth_percent="0.15" />
+
+        <TextView
+            android:id="@+id/txt_nb_s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="S"
+            android:textColor="#FFFF00"
+            android:textSize="35sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_nb_bc"
+            app:layout_constraintEnd_toStartOf="@+id/txt_nb_out"
+            app:layout_constraintHeight_percent="0.05"
+            app:layout_constraintStart_toEndOf="@+id/txt_nb_sc"
+            app:layout_constraintWidth_percent="0.15" />
+
+        <TextView
+            android:id="@+id/txt_nb_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="@string/nbFirstNum"
+            app:layout_constraintBottom_toTopOf="@+id/edt_nb_n2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_nb_sc" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_numBase"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/txt_nb_out"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_nb"
+            app:layout_constraintWidth_percent="0.85" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

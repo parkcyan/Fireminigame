@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "173595572825",
+    "project_id": "fireminigame",
+    "storage_bucket": "fireminigame.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:173595572825:android:109d28ac3fc2586c738f48",
+        "android_client_info": {
+          "package_name": "com.cyan.fireminigame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "173595572825-d24o4oc558rq7e4292ba9iu6pasi4eb7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cyan.fireminigame",
+            "certificate_hash": "c00a90dac285c9513380e62595adbe2d0073a69c"
+          }
+        },
+        {
+          "client_id": "173595572825-tfblh28kgov07qiqv90pq35cs7qo2g6e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNOFIyIc4v4QsAzhBPf7SLQ_FNjRllKsc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "173595572825-tfblh28kgov07qiqv90pq35cs7qo2g6e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
