@@ -33,7 +33,7 @@ class SignInActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
         binding.si = signInVM
 
-        signInVM.siResult.observe(this, {
+        signInVM.siResult.observe(this) {
             when (it) {
                 EMAIL_NOT_INPUT -> Toast.makeText(
                     this, "이메일을 입력해주세요.",
@@ -68,21 +68,21 @@ class SignInActivity : AppCompatActivity() {
                 else -> Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT)
                     .show()
             }
-        })
+        }
 
-        signInVM.suEm.observe(this,{
+        signInVM.suEm.observe(this) {
             if (it) {
                 val intent = Intent(this, SignUpActivity::class.java)
                 startActivity(intent)
             }
-        })
+        }
 
-        signInVM.siStatus.observe(this,{
+        signInVM.siStatus.observe(this) {
             if (it) {
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }
-        })
+        }
     }
 
     // 회원가입 완료 후 바로 그 계정으로 로그인 후 메인 액티비티로 넘어가기 위함

@@ -1,6 +1,7 @@
 package com.cyan.fireminigame.view.activity
 
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
@@ -64,6 +65,7 @@ class NumBaseActivity : AppCompatActivity() {
                 SUBMIT_FIRST -> {
                     txt_nb_status.text = resources.getString(R.string.nbSubmit)
                     txt_nb_status.setTextColor(ContextCompat.getColor(this, R.color.white))
+                    numBaseVM.sendNotify(resources.getString(R.string.nbStatFirstSubmit), true)
                 }
             }
         }
@@ -78,10 +80,22 @@ class NumBaseActivity : AppCompatActivity() {
                         txt_nb_status.setTextColor(ContextCompat.getColor(this, R.color.white))
                     }
                 }
+                "HOST_OUT" -> {
+                    if (!intent.extras!!.getBoolean("host")) {
+                        gameOverDialog()
+                        finish()
+                    }
+                }
+                "GUEST_OUT" -> {
+                    if (intent.extras!!.getBoolean("host")) {
+                        gameOverDialog()
+                        finish()
+                    }
+                }
             }
         }
         numBaseVM.notify.observe(this) {
-            when(it){
+            when (it) {
                 "NUMBER_SUBMIT" -> numBaseVM.sendNotify(resources.getString(R.string.nbStatFirst))
             }
         }
@@ -99,6 +113,9 @@ class NumBaseActivity : AppCompatActivity() {
                 true -> txt_nb_out.setTextColor(ContextCompat.getColor(this, R.color.red))
                 false -> txt_nb_out.setTextColor(ContextCompat.getColor(this, R.color.white))
             }
+        }
+        numBaseVM.outGame.observe(this) {
+            finish()
         }
 
 
@@ -139,5 +156,29 @@ class NumBaseActivity : AppCompatActivity() {
                     ContextCompat.getColorStateList(applicationContext, R.color.white)
             }
         }
+    }
+
+    private fun gameOverDialog() {
+        val builder = AlertDialog.Builder(this, R.style.AlertDialog)
+        builder.setTitle("게임 종료")
+        builder.setMessage("상대방이 게임을 포기하였습니다.")
+        builder.setPositiveButton("예") { _, _ ->
+            finish()
+        }.show()
+    }
+
+    override fun onBackPressed() {
+        outGameDialog()
+    }
+
+    private fun outGameDialog() {
+        val builder = AlertDialog.Builder(this, R.style.AlertDialog)
+        builder.setTitle("나가기")
+        builder.setMessage("게임을 포기하시겠습니까?")
+        builder.setNegativeButton("아니오") { _, _ -> }
+            .setPositiveButton("예") { _, _ ->
+                numBaseVM.outGame()
+            }
+            .show()
     }
 }

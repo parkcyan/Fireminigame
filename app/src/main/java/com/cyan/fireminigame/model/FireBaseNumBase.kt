@@ -13,9 +13,14 @@ class FireBaseNumBase(private val key: String, private val host: Boolean) {
     private lateinit var getNbNotifyListener: EventListener.GetNbNotifyListener
 
     fun getNbInfo(nbResultListener: NbResultListener) {
+        fbDb.reference.child("Game").child(key).child("gameStart").setValue("PLAYING")
         getNbInfoListener = EventListener.GetNbInfoListener(nbResultListener)
         fbDb.reference.child("NumBase").child(key)
             .addValueEventListener(getNbInfoListener)
+    }
+
+    fun removeGetNbInfo(){
+        fbDb.reference.child("NumBase").child(key).removeEventListener(getNbInfoListener)
     }
 
     fun getMember(nbResultListener: NbResultListener) {
@@ -40,6 +45,10 @@ class FireBaseNumBase(private val key: String, private val host: Boolean) {
             .addValueEventListener(getNbNotifyListener)
     }
 
+    fun removeGetNotify() {
+        fbDb.reference.child("NumBase").child(key).removeEventListener(getNbNotifyListener)
+    }
+
     fun submitNum(num: String) {
         if (host) {
             fbDb.reference.child("NumBase").child(key).child("m1Num").setValue(num)
@@ -60,6 +69,37 @@ class FireBaseNumBase(private val key: String, private val host: Boolean) {
     fun nextTurn(turn: Int) {
         fbDb.reference.child("NumBase").child(key).child("turn").setValue(turn.toString())
         fbDb.reference.child("NumBase").child(key).child("status").setValue("NEXT_TURN")
+    }
+
+    fun outGame(host: Boolean) {
+        if(host){
+            fbDb.reference.child("NumBase").child(key).child("status").setValue("HOST_OUT")
+                .addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        fbDb.reference.child("NumBase").child(key).removeValue()
+                    } else {
+                        try {
+                            it.result
+                        } catch (e: Exception) {
+                            Log.d("firebase", "delete game fail // " + e.message.toString())
+                        }
+                    }
+                }
+        } else {
+            fbDb.reference.child("NumBase").child(key).child("status").setValue("GUEST_OUT")
+                .addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        fbDb.reference.child("NumBase").child(key).removeValue()
+                    } else {
+                        try {
+                            it.result
+                        } catch (e: Exception) {
+                            Log.d("firebase", "delete game fail // " + e.message.toString())
+                        }
+                    }
+                }
+        }
+
     }
 
 

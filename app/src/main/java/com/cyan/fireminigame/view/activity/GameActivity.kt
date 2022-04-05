@@ -16,6 +16,7 @@ import com.cyan.fireminigame.model.FireBaseManager.Companion.NUMBER_BASEBALL
 import com.cyan.fireminigame.model.FireBaseManager.Companion.READY
 import com.cyan.fireminigame.viewmodel.ViewModelFactory
 import com.cyan.fireminigame.viewmodel.activity.GameViewModel
+import com.cyan.fireminigame.viewmodel.activity.GameViewModel.Companion.CONNECTION_FAIL
 import com.cyan.fireminigame.viewmodel.activity.GameViewModel.Companion.HOST_LEAVES
 import com.cyan.fireminigame.viewmodel.activity.GameViewModel.Companion.NOT_HOST
 import com.cyan.fireminigame.viewmodel.activity.GameViewModel.Companion.NO_OPPONENT
@@ -29,7 +30,7 @@ class GameActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGameBinding
     private lateinit var vmFactory: ViewModelFactory.WithKey
     private var game = 0
-    private var gameStart = 0
+    private var gameStart = false
     private var outActivity = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -76,21 +77,23 @@ class GameActivity : AppCompatActivity() {
 
         gameVM.kickedOutRoom.observe(this) {
             when (it) {
-                HOST_LEAVES -> Toast.makeText(this, "방장이 방을 나갔습니다.",
+                HOST_LEAVES -> Toast.makeText(this, resources.getString(R.string.hostLeaves),
+                    Toast.LENGTH_SHORT).show()
+                CONNECTION_FAIL -> Toast.makeText(this, resources.getString(R.string.connectionFail),
                     Toast.LENGTH_SHORT).show()
             }
         }
 
         gameVM.gameStart.observe(this) {
             when (it) {
-                NOT_HOST -> Toast.makeText(this, "게임의 방장이 아닙니다.",
+                NOT_HOST -> Toast.makeText(this, resources.getString(R.string.notHost),
                     Toast.LENGTH_SHORT).show()
-                NO_OPPONENT -> Toast.makeText(this, "상대방이 없습니다.",
+                NO_OPPONENT -> Toast.makeText(this, resources.getString(R.string.noOpponent),
                     Toast.LENGTH_SHORT).show()
-                NOT_READY -> Toast.makeText(this, "레디하지 않은 플레이어가 있습니다.",
+                NOT_READY -> Toast.makeText(this, resources.getString(R.string.notReady),
                     Toast.LENGTH_SHORT).show()
                 NUMBER_BASEBALL -> {
-                    gameStart = 1
+                    gameStart = true
                     val intent = Intent(this, NumBaseActivity::class.java)
                     intent.putExtra("key", this.intent.extras!!.getString("key")!!)
                     intent.putExtra("host", this.intent.extras!!.getBoolean("host"))

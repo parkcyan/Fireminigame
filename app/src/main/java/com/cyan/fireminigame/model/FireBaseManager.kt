@@ -143,9 +143,9 @@ class FireBaseManager {
         val current = System.currentTimeMillis()
         sec = ((current/1000)%60).toInt()
         when (host) {
-            true -> fbDb.reference.child("Game").child(key).child("Connect")
+            true -> fbDb.reference.child("Game").child(key).child("connect")
                 .child("m1Connect").setValue("OK$sec")
-            false -> fbDb.reference.child("Game").child(key).child("Connect")
+            false -> fbDb.reference.child("Game").child(key).child("connect")
                 .child("m2Connect").setValue("OK$sec")
         }
     }
@@ -153,10 +153,10 @@ class FireBaseManager {
     fun getConnect(key: String, host: Boolean, gameResultListener: GameResultListener) {
         getConnectInfoListener = EventListener.GetConnectInfoListener(gameResultListener, host)
         if(host){
-            fbDb.reference.child("Game").child(key).child("Connect").child("m2Connect")
+            fbDb.reference.child("Game").child(key).child("connect").child("m2Connect")
                 .addValueEventListener(getConnectInfoListener)
         } else {
-            fbDb.reference.child("Game").child(key).child("Connect").child("m1Connect")
+            fbDb.reference.child("Game").child(key).child("connect").child("m1Connect")
                 .addValueEventListener(getConnectInfoListener)
         }
 
@@ -175,6 +175,11 @@ class FireBaseManager {
             fbDb.reference.child("Game").child(key).child("m1Ready").setValue(ready)
         else if (!host)
             fbDb.reference.child("Game").child(key).child("m2Ready").setValue(ready)
+    }
+
+    fun kickOutGuest(key: String){
+        fbDb.reference.child("Game").child(key).child("m2Ready").setValue(NOT_READY)
+        fbDb.reference.child("Game").child(key).child("member2").setValue("")
     }
 
     fun outRoom(key: String, host: Boolean, gameResultListener: GameResultListener) {
@@ -217,6 +222,10 @@ class FireBaseManager {
                     }
             }
         }
+    }
+
+    fun connectionFailOnPlaying(key:String, host: Boolean) {
+
     }
 
 

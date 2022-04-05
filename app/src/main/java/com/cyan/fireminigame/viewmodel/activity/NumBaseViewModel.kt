@@ -1,6 +1,5 @@
 package com.cyan.fireminigame.viewmodel.activity
 
-import androidx.databinding.ObservableInt
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.cyan.fireminigame.callback.NbResultListener
@@ -24,8 +23,8 @@ class NumBaseViewModel(key: String, private var host: Boolean) : ViewModel(), Nb
     var num1 = ""
     var num2 = ""
     var num3 = ""
-    private var member1 = ""
-    private var member2 = ""
+    private var hostNick = ""
+    private var guestNick = ""
     private var m1Num = ""
     private var m2Num = ""
     private var turn: Int? = 0
@@ -37,6 +36,7 @@ class NumBaseViewModel(key: String, private var host: Boolean) : ViewModel(), Nb
     var refreshNb = MutableLiveData<Boolean>()
     var numSubmit = MutableLiveData<Int>()
     var status = MutableLiveData<String>()
+    var outGame = MutableLiveData<Boolean>()
 
     private val fn = FireBaseNumBase(key, host)
 
@@ -104,21 +104,26 @@ class NumBaseViewModel(key: String, private var host: Boolean) : ViewModel(), Nb
     private fun makeNotify() {
         if (host) {
             if (isOut.value == true) {
-                sendNotify("$member1 : $num1$num2$num3 -> OUT")
+                sendNotify("$hostNick : $num1$num2$num3 -> OUT // turn : $turn")
             } else {
-                sendNotify("$member1 : $num1$num2$num3 -> $ball" + "B $strike" + "S")
+                sendNotify("$hostNick : $num1$num2$num3 -> $ball" + "B $strike" + "S // turn : $turn")
             }
         } else if (!host) {
             if (isOut.value == true) {
-                sendNotify("$member2 : $num1$num2$num3 -> OUT")
+                sendNotify("$guestNick : $num1$num2$num3 -> OUT // turn : $turn")
             } else {
-                sendNotify("$member2 : $num1$num2$num3 -> $ball" + "B $strike" + "S")
+                sendNotify("$guestNick : $num1$num2$num3 -> $ball" + "B $strike" + "S // turn : $turn")
             }
         }
     }
 
     fun sendNotify(notify: String) {
         fn.sendNotify(NbNotify(notify))
+    }
+
+    fun sendNotify(notify: String, firstSubmit: Boolean) {
+        if (host) fn.sendNotify(NbNotify(hostNick + notify))
+        else fn.sendNotify(NbNotify(guestNick + notify))
     }
 
     private fun checkNum(subNum: String, m1Num: String, m2Num: String): Array<Int> {
@@ -141,6 +146,13 @@ class NumBaseViewModel(key: String, private var host: Boolean) : ViewModel(), Nb
             }
         }
         return r
+    }
+
+    fun outGame() {
+        fn.removeGetNbInfo()
+        fn.removeGetNotify()
+        fn.outGame(host)
+        outGame.value = true
     }
 
     override fun getNbInfo(
@@ -177,8 +189,8 @@ class NumBaseViewModel(key: String, private var host: Boolean) : ViewModel(), Nb
     }
 
     override fun getMember(member1: String, member2: String) {
-        this.member1 = member1
-        this.member2 = member2
+        this.hostNick = member1
+        this.guestNick = member2
     }
 
     override fun refreshNotify(data: MutableIterable<DataSnapshot>) {

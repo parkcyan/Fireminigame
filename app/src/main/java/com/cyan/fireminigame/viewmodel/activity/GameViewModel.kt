@@ -16,6 +16,7 @@ class GameViewModel(private val key: String, private val host: Boolean) : ViewMo
     companion object {
         const val KICKED_OUT = 0 // 강퇴 (미구현)
         const val HOST_LEAVES = 1
+        const val CONNECTION_FAIL = 2
 
         const val NO_OPPONENT = 11
         const val NOT_HOST = 12
@@ -41,15 +42,25 @@ class GameViewModel(private val key: String, private val host: Boolean) : ViewMo
         fs.getConnect(key, host, this)
         timer(period = 1000, initialDelay = 1000) {
             if (member2 != "") connectCheck++
-            if (connectCheck == 10){
-
+            if (connectCheck == 5) {
+                connectionError()
             }
             if (outRoom.value == true) cancel()
-            Log.d("ddd", "$connectCheck")
         }
-        timer(period = 1100, initialDelay = 1000) {
+        timer(period = 2000, initialDelay = 1000) {
             fs.sendConnect(key, host)
             if (outRoom.value == true) cancel()
+        }
+    }
+
+    private fun connectionError() {
+        if (host && (gameStart.value == null || gameStart.value!! < 5000)) {
+            fs.kickOutGuest(key)
+        } else if (!host && (gameStart.value == null || gameStart.value!! < 5000)) {
+            outRoom()
+            kickedOutRoom.value = CONNECTION_FAIL
+        } else if(gameStart.value!! >= 5000) {
+            fs.connectionFailOnPlaying(key, host)
         }
     }
 
@@ -88,6 +99,7 @@ class GameViewModel(private val key: String, private val host: Boolean) : ViewMo
     // 방에서 나갈때
     fun outRoom() {
         fs.removeGetRoomInfo()
+        fs.removeGetConnectInfo()
         outRoom.value = true
         fs.outRoom(key, host, this)
     }
@@ -125,9 +137,6 @@ class GameViewModel(private val key: String, private val host: Boolean) : ViewMo
     override fun getConnectInfo(connect: String?) {
         if (connect != null) {
             if (connect.contains("OK")) connectCheck = 0
-            Log.d("ddd", "$connect+$connectCheck")
         }
     }
-
-
 }

@@ -33,11 +33,11 @@ class SignUpActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
         binding.su = signUpVM
 
-        signUpVM.suReady.observe(this, {
+        signUpVM.suReady.observe(this) {
             if (it) btn_su.setBackgroundResource(R.color.purple_500)
             else btn_su.setBackgroundResource(R.color.dark)
-        })
-        signUpVM.suResult.observe(this, {
+        }
+        signUpVM.suResult.observe(this) {
             when (it) {
                 SIGN_UP_SUCCESS -> {
                     Toast.makeText(this, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT)
@@ -56,13 +56,13 @@ class SignUpActivity : AppCompatActivity() {
                 else -> Toast.makeText(this, "회원가입 실패", Toast.LENGTH_SHORT)
                     .show()
             }
-        })
-        signUpVM.pwdMatch.observe(this, {
+        }
+        signUpVM.pwdMatch.observe(this) {
             if (it) txt_su_pwdMatch.visibility = View.INVISIBLE
             else txt_su_pwdMatch.visibility = View.VISIBLE
-        })
-        signUpVM.nicCheck.observe(this, {
-            when(it){
+        }
+        signUpVM.nicCheck.observe(this) {
+            when (it) {
                 NICK_OK -> txt_su_nicCheck.visibility = View.INVISIBLE
                 NICK_LENGTH_WRONG -> {
                     txt_su_nicCheck.text = resources.getString(R.string.nicLen)
@@ -73,15 +73,15 @@ class SignUpActivity : AppCompatActivity() {
                     txt_su_nicCheck.visibility = View.VISIBLE
                 }
             }
-        })
-        signUpVM.emVer.observe(this, {
+        }
+        signUpVM.emVer.observe(this) {
             if (it) txt_su_emVer.visibility = View.INVISIBLE
             else txt_su_emVer.visibility = View.VISIBLE
-        })
-        signUpVM.pwd6.observe(this, {
+        }
+        signUpVM.pwd6.observe(this) {
             if (it) txt_su_pwd6.visibility = View.INVISIBLE
             else txt_su_pwd6.visibility = View.VISIBLE
-        })
+        }
 
     }
 

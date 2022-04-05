@@ -28,7 +28,14 @@
     <string name="ready">Ready</string>
     <string name="gameStart">게임 시작</string>
 
+    <string name="notHost">"게임의 방장이 아닙니다."</string>
+    <string name="noOpponent">"상대방이 없습니다."</string>
+    <string name="notReady">"레디하지 않은 플레이어가 있습니다."</string>
+    <string name="hostLeaves">"방장이 방을 나갔습니다."</string>
+    <string name="connectionFail">"Host와의 연결에 실패했습니다."</string>
+
     <string name="nbStatFirst">게임이 시작되었습니다. 상대방이 맞출 세 숫자를 입력해주세요.</string>
+    <string name="nbStatFirstSubmit">님이 맞출 숫자를 입력했습니다.</string>
 
     <string name="nbFirstNum">세 숫자를 중복되지 않도록 입력해주세요.</string>
     <string name="nbSubmit">숫자를 골랐습니다. 상대방이 숫자를 입력할때까지 기다려주세요.</string>
