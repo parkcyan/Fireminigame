@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22083333333333333" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/drawable/border_white_2dp.xml" value="0.17324561403508773" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/drawable/chat_black_24dp.xml" value="0.21354166666666666" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/drawable/circle_white_2dp.xml" value="0.17324561403508773" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/drawable/ic_add_24px.xml" value="0.17675438596491228" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/drawable/ic_baseball_cyan_24dp.xml" value="0.17675438596491228" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/drawable/ic_baseball_white_24dp.xml" value="0.17763157894736842" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/drawable/ic_chat_white_24dp.xml" value="0.18026315789473685" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/drawable/ic_game_24px.xml" value="0.17675438596491228" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22083333333333333" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/drawable/ic_menu_white_24dp.xml" value="0.22083333333333333" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/drawable/newww.xml" value="0.21354166666666666" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/drawable/round_background_border_white.xml" value="0.1763157894736842" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/drawable/round_background_border_white_2dp.xml" value="0.17587719298245613" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/drawable/round_border_white_2dp.xml" value="0.1763157894736842" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/drawable/round_border_white_2dp_ready.xml" value="0.17587719298245613" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/drawable/round_border_white_4dp.xml" value="0.17324561403508773" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/drawable/sports_esports_black_24dp__2_.xml" value="0.17763157894736842" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/layout/activity_game.xml" value="0.25" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/layout/activity_login.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/layout/activity_main.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/layout/activity_nb.xml" value="0.33" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/layout/activity_signin.xml" value="0.33" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/layout/activity_signup.xml" value="0.33" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/layout/dialog_newgameroom.xml" value="0.33" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/layout/dialog_newroom.xml" value="0.33" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/layout/drawer_main_header.xml" value="0.19791666666666666" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/layout/fragment1.xml" value="0.19739583333333333" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/layout/fragment2.xml" value="0.19739583333333333" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/layout/fragment_chat.xml" value="0.22" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/layout/fragment_game.xml" value="0.22" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/layout/fragment_lobby.xml" value="0.16271929824561404" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/layout/recyclerview_chat.xml" value="0.5" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/layout/recyclerview_game.xml" value="0.3048245614035088" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/layout/recyclerview_lobby.xml" value="0.14945652173913043" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/layout/recyclerview_nb.xml" value="0.33" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/layout/toolbar_main.xml" value="0.19791666666666666" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/menu/drawer_main.xml" value="0.2046875" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/menu/drawer_main_header.xml" value="0.2046875" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/menu/menu_main.xml" value="0.2046875" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/menu/navigation_menu.xml" value="0.2046875" />
+        <entry key="..\:/Users/pc224/AndroidStudioProjects/FireMinigame/app/src/main/res/menu/toolbar.xml" value="0.2046875" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
