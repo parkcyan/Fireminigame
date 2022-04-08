@@ -10,14 +10,13 @@ import androidx.lifecycle.ViewModelProvider
 import com.cyan.fireminigame.R
 import com.cyan.fireminigame.adapter.NumBaseAdapter
 import com.cyan.fireminigame.databinding.ActivityNbBinding
-import com.cyan.fireminigame.model.NbNotify
+import com.cyan.fireminigame.viewmodel.ConnectionCheck
 import com.cyan.fireminigame.viewmodel.ViewModelFactory
 import com.cyan.fireminigame.viewmodel.activity.NumBaseViewModel
 import com.cyan.fireminigame.viewmodel.activity.NumBaseViewModel.Companion.NUM_REDUP
 import com.cyan.fireminigame.viewmodel.activity.NumBaseViewModel.Companion.NUM_SHORT
 import com.cyan.fireminigame.viewmodel.activity.NumBaseViewModel.Companion.SUBMIT_FIRST
 import kotlinx.android.synthetic.main.activity_nb.*
-import kotlinx.android.synthetic.main.fragment_chat.*
 
 class NumBaseActivity : AppCompatActivity() {
 
@@ -26,10 +25,12 @@ class NumBaseActivity : AppCompatActivity() {
     private lateinit var binding: ActivityNbBinding
     private lateinit var numBaseAdapter: NumBaseAdapter
     private lateinit var vmFactory: ViewModelFactory.WithKey
+    private lateinit var connectionCheck: ConnectionCheck
     var turn: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        connectionCheck = ConnectionCheck(this)
         vmFactory = ViewModelFactory.WithKey(
             intent.extras!!.getString("key")!!, intent.extras!!.getBoolean("host"))
         numBaseAdapter = NumBaseAdapter(this)
@@ -44,6 +45,12 @@ class NumBaseActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayShowTitleEnabled(false)
 
         rv_numBase.adapter = numBaseAdapter
+
+        connectionCheck.observe(this) {
+            when (it) {
+                false -> connectionLostDialog()
+            }
+        }
 
         numBaseVM.refreshNb.observe(this) {
             binding.invalidateAll()
@@ -83,13 +90,11 @@ class NumBaseActivity : AppCompatActivity() {
                 "HOST_OUT" -> {
                     if (!intent.extras!!.getBoolean("host")) {
                         gameOverDialog()
-                        finish()
                     }
                 }
                 "GUEST_OUT" -> {
                     if (intent.extras!!.getBoolean("host")) {
                         gameOverDialog()
-                        finish()
                     }
                 }
             }
@@ -158,13 +163,29 @@ class NumBaseActivity : AppCompatActivity() {
         }
     }
 
+    private fun connectionLostDialog() {
+        val builder = AlertDialog.Builder(this, R.style.AlertDialog)
+        builder.setTitle(resources.getString(R.string.connectionLost))
+        builder.setMessage(resources.getString(R.string.connectionLostDialog))
+        builder.setCancelable(false)
+        builder.setPositiveButton(resources.getString(R.string.yes)) { _, _ -> }
+        builder.setOnDismissListener {
+            finish()
+        }
+        builder.show()
+    }
+
     private fun gameOverDialog() {
         val builder = AlertDialog.Builder(this, R.style.AlertDialog)
-        builder.setTitle("게임 종료")
-        builder.setMessage("상대방이 게임을 포기하였습니다.")
-        builder.setPositiveButton("예") { _, _ ->
+        builder.setTitle(resources.getString(R.string.gameOver))
+        builder.setMessage(resources.getString(R.string.gameOverDialog))
+        builder.setCancelable(false)
+        builder.setPositiveButton(resources.getString(R.string.yes)) { _, _ -> }
+        builder.setOnDismissListener {
             finish()
-        }.show()
+        }
+        builder.show()
+
     }
 
     override fun onBackPressed() {
@@ -173,10 +194,10 @@ class NumBaseActivity : AppCompatActivity() {
 
     private fun outGameDialog() {
         val builder = AlertDialog.Builder(this, R.style.AlertDialog)
-        builder.setTitle("나가기")
-        builder.setMessage("게임을 포기하시겠습니까?")
-        builder.setNegativeButton("아니오") { _, _ -> }
-            .setPositiveButton("예") { _, _ ->
+        builder.setTitle(resources.getString(R.string.out))
+        builder.setMessage(resources.getString(R.string.outGameDialog))
+        builder.setNegativeButton(resources.getString(R.string.no)) { _, _ -> }
+            .setPositiveButton(resources.getString(R.string.yes)) { _, _ ->
                 numBaseVM.outGame()
             }
             .show()

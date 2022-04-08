@@ -106,7 +106,7 @@ class LobbyViewModel(var nick: String) : ViewModel(), LobbyResultListener {
         val db = ArrayList<GameRoom>()
         for (r in data) {
             if (r.child("title").value.toString() == "null"){
-                break
+                continue
             }
             db.add(
                 GameRoom(

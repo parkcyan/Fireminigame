@@ -2,7 +2,6 @@ package com.cyan.fireminigame.view.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -14,13 +13,13 @@ import com.cyan.fireminigame.databinding.ActivityGameBinding
 import com.cyan.fireminigame.model.FireBaseManager.Companion.NOT_READY
 import com.cyan.fireminigame.model.FireBaseManager.Companion.NUMBER_BASEBALL
 import com.cyan.fireminigame.model.FireBaseManager.Companion.READY
+import com.cyan.fireminigame.viewmodel.ConnectionCheck
 import com.cyan.fireminigame.viewmodel.ViewModelFactory
 import com.cyan.fireminigame.viewmodel.activity.GameViewModel
 import com.cyan.fireminigame.viewmodel.activity.GameViewModel.Companion.CONNECTION_FAIL
 import com.cyan.fireminigame.viewmodel.activity.GameViewModel.Companion.HOST_LEAVES
 import com.cyan.fireminigame.viewmodel.activity.GameViewModel.Companion.NOT_HOST
 import com.cyan.fireminigame.viewmodel.activity.GameViewModel.Companion.NO_OPPONENT
-import com.cyan.fireminigame.viewmodel.activity.MainViewModel
 import kotlinx.android.synthetic.main.activity_game.*
 
 class GameActivity : AppCompatActivity() {
@@ -29,12 +28,13 @@ class GameActivity : AppCompatActivity() {
     private lateinit var gameVM: GameViewModel
     private lateinit var binding: ActivityGameBinding
     private lateinit var vmFactory: ViewModelFactory.WithKey
+    private lateinit var connectionCheck: ConnectionCheck
     private var game = 0
     private var gameStart = false
-    private var outActivity = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        connectionCheck = ConnectionCheck(this)
         vmFactory = ViewModelFactory.WithKey(
             intent.extras!!.getString("key")!!, intent.extras!!.getBoolean("host"))
         gameVM = ViewModelProvider(this, vmFactory).get(GameViewModel::class.java)
@@ -46,6 +46,12 @@ class GameActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayShowTitleEnabled(false)
+
+        connectionCheck.observe(this) {
+            when (it) {
+                false -> connectionLostDialog()
+            }
+        }
 
         gameVM.game.observe(this) {
             when (it) {
@@ -105,16 +111,28 @@ class GameActivity : AppCompatActivity() {
 
     }
 
+    private fun connectionLostDialog() {
+        val builder = AlertDialog.Builder(this, R.style.AlertDialog)
+        builder.setTitle(resources.getString(R.string.connectionLost))
+        builder.setMessage(resources.getString(R.string.connectionLostDialog))
+        builder.setCancelable(false)
+        builder.setPositiveButton(resources.getString(R.string.yes)) { _, _ -> }
+        builder.setOnDismissListener {
+            finish()
+        }
+        builder.show()
+    }
+
     override fun onBackPressed() {
         outRoomDialog()
     }
 
     private fun outRoomDialog() {
         val builder = AlertDialog.Builder(this, R.style.AlertDialog)
-        builder.setTitle("나가기")
-        builder.setMessage("대기 방을 나가시겠습니까?")
-        builder.setNegativeButton("아니오") { _, _ -> }
-            .setPositiveButton("예") { _, _ ->
+        builder.setTitle(resources.getString(R.string.out))
+        builder.setMessage(resources.getString(R.string.outRoomDialog))
+        builder.setNegativeButton(resources.getString(R.string.no)) { _, _ -> }
+            .setPositiveButton(resources.getString(R.string.yes)) { _, _ ->
                 gameVM.outRoom()
             }
             .show()

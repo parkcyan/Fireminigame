@@ -41,15 +41,15 @@ class GameViewModel(private val key: String, private val host: Boolean) : ViewMo
         fs.getRoomInfo(key, this)
         fs.getConnect(key, host, this)
         timer(period = 1000, initialDelay = 1000) {
+            if (outRoom.value == true) cancel()
             if (member2 != "") connectCheck++
             if (connectCheck == 5) {
                 connectionError()
             }
-            if (outRoom.value == true) cancel()
         }
         timer(period = 2000, initialDelay = 1000) {
-            fs.sendConnect(key, host)
             if (outRoom.value == true) cancel()
+            fs.sendConnect(key, host)
         }
     }
 
@@ -100,7 +100,7 @@ class GameViewModel(private val key: String, private val host: Boolean) : ViewMo
     fun outRoom() {
         fs.removeGetRoomInfo()
         fs.removeGetConnectInfo()
-        outRoom.value = true
+        outRoom.postValue(true)
         fs.outRoom(key, host, this)
     }
 

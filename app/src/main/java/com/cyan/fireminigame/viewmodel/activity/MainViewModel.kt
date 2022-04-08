@@ -1,6 +1,7 @@
 package com.cyan.fireminigame.viewmodel.activity
 
 import android.app.Activity
+import android.net.ConnectivityManager
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.cyan.fireminigame.callback.MainResultListener

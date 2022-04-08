@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">FireMinigame</string>
+    <string name="yes">예</string>
+    <string name="no">아니오</string>
     <string name="email">이메일</string>
     <string name="pwd">비밀번호</string>
     <string name="title">방 제목</string>
@@ -21,18 +23,27 @@
     <string name="newRoomTitle">같이 %1s 한판해요 ^^</string>
     <string name="newGameRoom">게임 방 만들기</string>
     <string name="newRoom">방 만들기</string>
+    <string name="out">나가기</string>
+    <string name="gameOver">게임 종료</string>
+    <string name="gameOverDialog">상대방이 게임을 포기하였습니다.</string>
+    <string name="outGameDialog">게임을 포기하시겠습니까?</string>
+    <string name="outRoomDialog">게임 방을 나가시겠습니까?</string>
     <string name="numberBaseball">숫자야구</string>
     <string name="test1">테스트1</string>
     <string name="test2">테스트2</string>
     <string name="test3">테스트3</string>
     <string name="ready">Ready</string>
     <string name="gameStart">게임 시작</string>
+    <string name="connectionLost">연결 실패</string>
+    <string name="connectionLostDialog">서버에 연결되지 않아 어플리케이션을 종료합니다.</string>
+    <string name="signOutDialog">로그아웃 하시겠습니까?</string>
+    <string name="onBackPressed">\'뒤로\' 버튼을 한번 더 누르면 종료됩니다.</string>
 
-    <string name="notHost">"게임의 방장이 아닙니다."</string>
-    <string name="noOpponent">"상대방이 없습니다."</string>
-    <string name="notReady">"레디하지 않은 플레이어가 있습니다."</string>
-    <string name="hostLeaves">"방장이 방을 나갔습니다."</string>
-    <string name="connectionFail">"Host와의 연결에 실패했습니다."</string>
+    <string name="notHost">게임의 방장이 아닙니다.</string>
+    <string name="noOpponent">상대방이 없습니다.</string>
+    <string name="notReady">레디하지 않은 플레이어가 있습니다.</string>
+    <string name="hostLeaves">방장이 방을 나갔습니다.</string>
+    <string name="connectionFail">Host와의 연결에 실패했습니다.</string>
 
     <string name="nbStatFirst">게임이 시작되었습니다. 상대방이 맞출 세 숫자를 입력해주세요.</string>
     <string name="nbStatFirstSubmit">님이 맞출 숫자를 입력했습니다.</string>
@@ -43,4 +54,14 @@
     <string name="nbNumDup">중복된 숫자가 포함되어 있습니다.</string>
     <string name="nbMyTurn">플레이어의 차례입니다. 예상한 숫자를 입력해주세요.</string>
     <string name="nbOpTurn">상대방의 차례입니다. 상대방이 숫자를 입력중입니다.</string>
+
+    <string name="pwdNotMatch">이메일 또는 비밀번호를 확인해주세요.</string>
+    <string name="signInSuccess">로그인 되었습니다.</string>
+    <string name="pwdNotInput">비밀번호를 입력해주세요.</string>
+    <string name="emailNotInput">이메일을 입력해주세요.</string>
+    <string name="userNotFound">이메일 또는 비밀번호를 확인해주세요.</string>
+    <string name="failSignIn">로그인 실패</string>
+    <string name="nickAlreadyInUse">이미 사용중인 닉네임입니다.</string>
+    <string name="emailAlreadyInUse">이미 등록된 이메일입니다.</string>
+    <string name="failSignUp">회원가입 실패</string>
 </resources>
